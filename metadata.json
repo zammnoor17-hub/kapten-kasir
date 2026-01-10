@@ -1,0 +1,5 @@
+{
+  "name": "Warung Kapten POS",
+  "description": "A modern restaurant POS system for Warung Kapten with role-based access for Owners and Cashiers, featuring order management, receipt printing, and sales analytics.",
+  "requestFramePermissions": []
+}
