@@ -4,17 +4,20 @@ export enum UserRole {
   CASHIER = 'CASHIER'
 }
 
-export interface User {
-  id: string;
+export interface UserProfile {
+  uid: string;
+  email: string;
   username: string;
-  role: UserRole;
   name: string;
+  role: UserRole;
 }
 
 export interface MenuItem {
   id: string;
   name: string;
-  price: number;
+  price: number; // Harga Normal
+  priceGrab: number; // Harga GrabFood
+  priceGojek: number; // Harga GojekFood
   category: string;
 }
 
@@ -30,16 +33,18 @@ export interface OrderItem {
   quantity: number;
 }
 
-export interface Order {
+export type OrderPlatform = 'NORMAL' | 'GRAB' | 'GOJEK';
+
+export interface Transaction {
   id: string;
   customerName: string;
   items: OrderItem[];
   total: number;
+  platform: OrderPlatform;
+  paymentMethod: 'CASH' | 'QRIS';
   amountPaid: number;
   change: number;
-  timestamp: number;
+  timestamp: any;
   cashierId: string;
   cashierName: string;
 }
-
-export type TimeRange = 'daily' | 'weekly' | 'monthly';
